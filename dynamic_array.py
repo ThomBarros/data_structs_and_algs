@@ -12,6 +12,20 @@ class DynamicArray:
             raise IndexError("Index out of bounds")
         return self.data[index]
 
+    def getSize(self):
+        return self.size
+
+    def getCapacity(self):
+        return self.capacity
+
+    def isEmpty(self):
+        return self.size == 0
+
+    def at(self, index):
+        if not 0<= index < self.size:
+            raise IndexError("Index out of bounds")
+        return self.data[index]
+
     def insert(self, index, value):
         if not 0<= index < self.size:
             raise IndexError("Index out of bounds")
@@ -24,8 +38,6 @@ class DynamicArray:
             
         self.data[index] = value
         self.size += 1            
-
-
 
     def append(self, value):
         if self.size == self.capacity:
