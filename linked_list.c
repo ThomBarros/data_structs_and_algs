@@ -294,7 +294,6 @@ int main() {
     LinkedList list;
     init_list(&list);
 
-    printf("=== Testing push_back ===\n");
     for (int i = 1; i <= 5; i++) {
         int* value = malloc(sizeof(int));
         *value = i;
@@ -303,14 +302,12 @@ int main() {
 
     printf("Size after push_back: %lu\n", (unsigned long)list.size);
 
-    printf("\n=== Testing insert at index 2 (value 99) ===\n");
     int* special = malloc(sizeof(int));
     *special = 99;
     insert(&list, 2, special);
 
     printf("Size after insert: %lu\n", (unsigned long)list.size);
 
-    printf("\n=== Printing list ===\n");
     Node* current = list.head;
     while (current) {
         printf("%d ", *(int*)current->data);
@@ -318,26 +315,21 @@ int main() {
     }
     printf("\n");
 
-    printf("\n=== Testing erase at index 3 ===\n");
     int* erased = erase(&list, 3);
     printf("Erased value: %d\n", *erased);
     free(erased);
 
-    printf("\n=== Testing pop_front ===\n");
     int* front_val = pop_front(&list);
     printf("Popped front: %d\n", *front_val);
     free(front_val);
 
-    printf("\n=== Testing pop_back ===\n");
     int* back_val = pop_back(&list);
     printf("Popped back: %d\n", *back_val);
     free(back_val);
 
-    printf("\n=== Testing value_n_from_end (n=1) ===\n");
     int* nth = value_n_from_end(&list, 1);
     printf("1 from end: %d\n", *nth);
 
-    printf("\n=== Testing reverse ===\n");
     reverse(&list);
 
     printf("List after reverse:\n");
@@ -348,7 +340,6 @@ int main() {
     }
     printf("\n");
 
-    printf("\n=== Testing remove_value (99) ===\n");
     remove_value(&list, special);
     free(special);
 
@@ -360,7 +351,6 @@ int main() {
     }
     printf("\n");
 
-    printf("\n=== Cleaning up remaining nodes ===\n");
     while (!empty(&list)) {
         int* val = pop_front(&list);
         free(val);
