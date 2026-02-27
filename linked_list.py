@@ -154,7 +154,63 @@ class LinkedList:
                 self._size -= 1
                 return
             current = current.next
-            
+
+class LinkedListWithTail:
+    def __init__(self):
+        self._size = 0
+        self.head = None
+        self.tail = None
+
+    def size(self):
+        return self._size
+
+    def empty(self):
+        return self._size == 0
+
+    def push_front(self, value):
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head = new_node
+
+        if self._size == 0:
+            self.tail = new_node
+
+        self._size += 1
+
+    def push_back(self, value):
+        new_node = Node(value)
+
+        if self.empty():
+            self.head = self.tail = new_node
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
+
+        self._size += 1
+
+    def pop_front(self):
+        if self.empty():
+            raise Exception("List is empty")
+
+        value = self.head.data
+        self.head = self.head.next
+        self._size -= 1
+
+        if self._size == 0:
+            self.tail = None
+
+        return value
+
+    def front(self):
+        if self.empty():
+            raise Exception("List is empty")
+        return self.head.data
+
+    def back(self):
+        if self.empty():
+            raise Exception("List is empty")
+        return self.tail.data
+
 
 
 def run_tests():
