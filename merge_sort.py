@@ -36,7 +36,7 @@ def merge(left, right):
 
 
 def run_tests():
-    arr = [2, 4, 6, 8, 1, 3, 5, 7]
+    arr = [101, 6, 2, 79, 4, 25, 0, 6, 8, 1, 350, 3, 15, 5, 11, 7]
     sorted_arr = merge_sort(arr)
     print(arr)
     print(sorted_arr) 
